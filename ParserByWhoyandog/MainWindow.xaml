@@ -1,0 +1,47 @@
+﻿<Window x:Class="ParserByWhoyandog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParserByWhoyandog"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"></ColumnDefinition>
+            <ColumnDefinition Width="160"></ColumnDefinition>
+            <ColumnDefinition Width="320*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Введите URL страницы:" Margin="10 0 10 0" FontFamily="Arial" FontSize="22" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Границы парсинга от и до:" Margin="10 0 10 0" FontFamily="Arial" FontSize="22" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="textBlockStatus" Text="" Margin="10 0 10 0" FontFamily="Arial" FontSize="22" VerticalAlignment="Top" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"/>
+
+        <TextBox x:Name="textBoxUrl" Height="32" Margin="10 0 10 0" FontFamily="Arial" FontSize="18" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></TextBox>
+        <TextBox x:Name="textBoxStart" Height="32" Width="80" Margin="10 0 10 0" FontFamily="Arial" FontSize="22" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox"></TextBox>
+        <TextBox x:Name="textBoxEnd" Height="32" Width="80" Margin="40 0 10 0" FontFamily="Arial" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox"></TextBox>
+        <TextBox x:Name="textBoxOutputParsingInfo" Margin="10" FontFamily="Arial" FontSize="18" Grid.Row="0" Grid.Column="2" Grid.RowSpan="8" IsReadOnly="true"></TextBox>
+
+        <ComboBox x:Name="comboBoxParsingList" Width="300" Margin="10 4 10 4" FontFamily="Arial" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" SelectionChanged="comboBoxParsingList_SelectionChanged">
+            <ComboBoxItem IsSelected="True">
+                <TextBlock Text="Avito"></TextBlock>
+            </ComboBoxItem>
+            <TextBlock Text="Petrovich"></TextBlock>
+            <TextBlock Text="Phpnick"></TextBlock>
+        </ComboBox>
+        
+        <Button Content="Начать" Height="32" Width="140" Margin="10 4 0 4" FontFamily="Arial" FontSize="22" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="0" Click="ButtonStart"></Button>
+        <Button Content="Остановить" Height="32" Width="140" Margin="10 4 0 4" FontFamily="Arial" FontSize="22" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" Click="ButtonAbort"></Button>
+        <Button Content="Очистить" Height="32" Width="140" Margin="10 4 0 4" FontFamily="Arial" FontSize="22" HorizontalAlignment="Left" Grid.Row="6" Grid.Column="0" Click="ButtonClear"></Button>
+    </Grid>
+</Window>
